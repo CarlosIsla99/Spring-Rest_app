@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulario de reservas</title>
+</head>
+<body>
+<h1>Formulario de reservas</h1>
+
+<form th:action="@{/reserva/crear}" method="post" th:object="${reserva}">
+	<label for="id">ID:</label><br>
+	<input th:field="*{id}" value="${reserva.id}" readonly>
+	<p th:errors="*{id}">Error id</p>
+	<br>
+	<label for="fecha">FECHA:</label><br>
+	<input th:field="*{fechaHora}" value="${reserva.fechaHora}" type="datetime-local">
+	<p th:errors="*{fechaHora}">Error fechaHora</p>
+	<br>
+	<label for="nombre">NOMBRE:</label><br>
+	<input th:field="*{nombre}">
+	<p th:errors="*{nombre}">Error nombre</p>
+	<br>
+	<label for="email">EMAIL:</label><br>
+	<input th:field="*{email}">
+	<p th:errors="*{email}">Error email</p>
+	<br>
+	<label for="telefono">TELEFOBO:</label><br>
+	<input th:field="*{telefono}" type="tel">
+	<p th:errors="*{telefono}">Error telefono</p>
+	<br>
+	<label for="perosnas">Nº DE PERSONAS:</label><br>
+	<input th:field="*{numeroPersonas}" type="number">
+	<p th:errors="*{numeroPersonas}">Error numeroPersonas</p>
+	<br>
+	<label for="perosnas">COMENTARIO:</label><br>
+	<textarea th:field="*{comentarios}" rows="4" cols="50"></textarea>
+	<p th:errors="*{comentarios}">Error comentarios</p>
+	<br>
+	<button>Aceptar</button>
+</form>
+
+</body>
+</html>
